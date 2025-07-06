@@ -99,8 +99,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Custom User Model
-AUTH_USER_MODEL = 'stockapp.CustomUser'
+
 
 # CORS pour autoriser les requêtes Angular
 CORS_ALLOW_ALL_ORIGINS = True

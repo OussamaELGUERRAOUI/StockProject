@@ -21,3 +21,45 @@ staticfiles/
 *.xlsx
 *.xls
 data/
+
+
+# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+
+# Exclude Angular frontend folder
+
+
+# Compiled output
+/stockproject_ui/dist
+/stockproject_ui/tmp
+/stockproject_ui/out-tsc
+/stockproject_ui/bazel-out
+
+# Node
+/stockproject_ui/node_modules
+/stockproject_uinpm-debug.log
+/stockproject_ui/yarn-error.log
+
+
+
+# Visual Studio Code
+stockproject_ui.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+stockproject_ui/stockproject_ui/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
+.DS_Store
+Thumbs.db
+
+

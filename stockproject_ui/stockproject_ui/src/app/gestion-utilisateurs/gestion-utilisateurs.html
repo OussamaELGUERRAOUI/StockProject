@@ -1,0 +1,53 @@
+<div class="container mt-4">
+  <h3 class="text-primary">Gestion des utilisateurs</h3>
+  <table class="table table-bordered table-sm mt-3">
+    <thead class="table-light">
+      <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Email</th>
+        <th>Dépôt</th>
+        <th>État</th>
+        <th>Mot de passe</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Lignes existantes -->
+      <tr *ngFor="let user of utilisateurs; let i = index">
+        <td><input [(ngModel)]="user.nom" (change)="modifierUtilisateur(i, 'nom', user.nom)" class="form-control" /></td>
+        <td><input [(ngModel)]="user.prenom" (change)="modifierUtilisateur(i, 'prenom', user.prenom)" class="form-control" /></td>
+        <td><input [(ngModel)]="user.email" (change)="modifierUtilisateur(i, 'email', user.email)" class="form-control" /></td>
+        <td><input [(ngModel)]="user.depot" (change)="modifierUtilisateur(i, 'depot', user.depot)" class="form-control" /></td>
+        <td>
+          <select [(ngModel)]="user.etat_utilisateur" (change)="modifierUtilisateur(i, 'etat_utilisateur', user.etat_utilisateur)" class="form-select">
+            <option value="admin">admin</option>
+            <option value="normal">normal</option>
+          </select>
+        </td>
+        <td>{{ user.mot_de_passe || '—' }}</td>
+      </tr>
+
+      <!-- Ligne pour ajouter un utilisateur -->
+      <tr>
+        <td><input [(ngModel)]="nouvelUtilisateur.nom" class="form-control" /></td>
+        <td><input [(ngModel)]="nouvelUtilisateur.prenom" class="form-control" /></td>
+        <td><input [(ngModel)]="nouvelUtilisateur.email" class="form-control" /></td>
+        <td><input [(ngModel)]="nouvelUtilisateur.depot" class="form-control" /></td>
+        <td>
+          <select [(ngModel)]="nouvelUtilisateur.etat_utilisateur" class="form-select">
+            <option value="admin">admin</option>
+            <option value="normal">normal</option>
+          </select>
+        </td>
+        <td>
+          <button 
+            class="btn btn-success btn-sm" 
+            (click)="ajouterUtilisateur()" 
+            [disabled]="!tousChampsRenseignes()">
+            Ajouter
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
