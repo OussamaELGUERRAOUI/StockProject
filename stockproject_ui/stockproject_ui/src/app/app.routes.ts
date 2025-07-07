@@ -6,6 +6,7 @@ import { Accueil} from './accueil/accueil';
 export const routes: Routes = [
   { path: 'gestion_utilisateur', component: GestionUtilisateursComponent },
   { path: 'accueil', component: Accueil },
+  { path: '', component: Accueil },
 ];
 
 @NgModule({
