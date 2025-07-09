@@ -1,14 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-// import { AccueilComponent } from './accueil/accueil.component';
+
+import { AccueilComponent } from './accueil/accueil';
 import { GestionUtilisateursComponent } from './gestion-utilisateurs/gestion-utilisateurs';
-import { Accueil} from './accueil/accueil';
-import {Formulaire} from './formulaire/formulaire'
+import { Formulaire } from './formulaire/formulaire';
+import { Forecast } from './forecast/forecast';
+import { Stock } from './stock/stock';
+
 export const routes: Routes = [
-    { path: '', component: Accueil },
+  { path: 'accueil', component: AccueilComponent },
   { path: 'gestion_utilisateur', component: GestionUtilisateursComponent },
-  { path: 'accueil', component: Accueil },
-  { path: 'formualire', component: Formulaire },
+  { path: 'formulaire', component: Formulaire },
+  { path: 'forecast', component: Forecast },
+  { path: 'stock', component: Stock },
+  { path: '', redirectTo: 'accueil', pathMatch: 'full' }
 ];
 
 @NgModule({
