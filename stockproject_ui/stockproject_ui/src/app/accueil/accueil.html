@@ -1,15 +1,59 @@
-<p>accueil works!</p>
-
-
 <input type="file" #fileInput style="display: none" (change)="onFileChange($event)" accept=".xlsx, .xls" />
+
 <div class="space-y-6">
   <h2 class="text-3xl font-bold text-[#7C3AED]">Bienvenue sur le Dashboard</h2>
-<button (click)="openFileInput()"
-        class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded transition">
-  ➕ Importer un fichier Excel
-</button>
 
-  <div class="bg-[#1e293b] rounded-xl p-6 shadow-lg text-white">
-    <p>📊 Prochaines données d'importation ici</p>
+  <button (click)="openFileInput()"
+          class="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded transition">
+    ➕ Importer un fichier Excel
+  </button>
+
+  <!-- Tableau affiché toujours -->
+  <div class="overflow-auto mt-6">
+    <table class="min-w-full border border-gray-300 rounded-lg text-sm">
+      <thead class="bg-gray-200">
+        <tr>
+          <th *ngFor="let col of columns" class="p-2 border border-gray-300 text-left font-bold relative">
+            <div class="flex items-center justify-between gap-1">
+              <span>{{ col }}</span>
+              <button (click)="toggleFilter(col)" class="hover:text-black">
+                <!-- Icône SVG filtre -->
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="w-4 h-4 text-gray-500"
+                     fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L14 13.414V19a1 1 0 01-.553.894l-4 2A1 1 0 018 21v-7.586L3.293 6.707A1 1 0 013 6V4z" />
+                </svg>
+              </button>
+            </div>
+
+            <!-- Champ de filtre discret sous le titre -->
+            <input *ngIf="showFilter[col]" [(ngModel)]="filters[col]" placeholder="Filtrer..."
+                   class="mt-1 px-2 py-1 w-full border border-gray-300 rounded text-xs"
+                   style="font-size: 12px;" />
+          </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngIf="data.length === 0">
+          <td [attr.colspan]="columns.length" class="text-center text-gray-500 p-4">
+            Aucun fichier importé.
+          </td>
+        </tr>
+
+        <tr *ngFor="let row of filteredData()" class="hover:bg-gray-100">
+          <td *ngFor="let col of columns" class="p-2 border border-gray-300">
+            {{ row[col] }}
+          </td>
+        </tr>
+
+        <tr *ngIf="data.length > 0 && filteredData().length === 0">
+          <td [attr.colspan]="columns.length" class="text-center text-gray-400 p-4">
+            Aucune donnée ne correspond au filtre.
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
