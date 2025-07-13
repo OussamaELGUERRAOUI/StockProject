@@ -1,0 +1,28 @@
+<section class="bg-[#0052cc] text-white py-16 px-4 sm:px-8 lg:px-16 min-h-screen">
+  <div class="scroll-fade-in opacity-0 translate-y-6 transition-all duration-700">
+  <h2 class="text-4xl font-bold text-center mb-12">Statistiques Pepsi</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+    <div class="bg-white text-[#0052cc] p-6 rounded-2xl shadow-xl transform transition hover:scale-105 duration-300">
+      <h3 class="text-xl font-semibold mb-2">Utilisateurs actifs</h3>
+      <h1 class="text-5xl font-extrabold" [countUp]="users">0</h1>
+      <p class="mt-2 text-sm text-gray-600">+5% cette semaine</p>
+    </div>
+
+    <div class="bg-white text-[#0052cc] p-6 rounded-2xl shadow-xl transform transition hover:scale-105 duration-300">
+      <h3 class="text-xl font-semibold mb-2">Stock total</h3>
+      <h1 class="text-5xl font-extrabold" [countUp]="stock">0</h1>
+      <p class="mt-2 text-sm text-gray-600">En entrepôt</p>
+    </div>
+
+    <div class="bg-white text-[#0052cc] p-6 rounded-2xl shadow-xl transform transition hover:scale-105 duration-300">
+      <h3 class="text-xl font-semibold mb-2">Prévisions de vente</h3>
+      <h1 class="text-5xl font-extrabold"
+          [countUp]="forecast"
+          [options]="forecastOptions">
+        0
+      </h1>
+      <p class="mt-2 text-sm text-gray-600">par rapport au mois dernier</p>
+    </div>
+  </div>
+  </div>
+</section>
