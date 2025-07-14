@@ -1,0 +1,26 @@
+/* Centrer le formulaire dans la page */
+.container {
+  max-width: 600px;
+  margin-top: 50px;
+}
+
+/* Marge entre les sections */
+.card {
+  margin-bottom: 30px;
+}
+
+/* Agrandir les select et input pour meilleure lisibilité */
+select.form-select,
+input.form-control {
+  font-size: 14px;
+}
+
+/* Titre du formulaire */
+.card-header h4 {
+  margin: 0;
+}
+
+/* Espacement du bouton */
+button[type="submit"] {
+  margin-top: 20px;
+}
