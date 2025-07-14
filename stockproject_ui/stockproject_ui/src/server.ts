@@ -7,6 +7,7 @@ import {
 import express from 'express';
 import { join } from 'node:path';
 
+
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
 const app = express();
@@ -66,3 +67,6 @@ if (isMainModule(import.meta.url)) {
  * Request handler used by the Angular CLI (for dev-server and during build) or Firebase Cloud Functions.
  */
 export const reqHandler = createNodeRequestHandler(app);
+/**
+ * Handle all other requests by rendering the Angular application.
+ */

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/user';
+import { UserService } from '../../services/user';
 
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms'; // ✅ important
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-gestion-utilisateurs',
-  standalone: true, // ✅ indispensable
-  imports: [CommonModule, FormsModule], // ✅ ajoute FormsModule ici
+  standalone: true, 
+  imports: [CommonModule, FormsModule],
   templateUrl: './gestion-utilisateurs.html',
   styleUrls: ['./gestion-utilisateurs.css']
 })
@@ -56,7 +56,7 @@ export class GestionUtilisateursComponent implements OnInit {
 
   modifierUtilisateur(index: number, field: string, value: string) {
     this.utilisateurs[index][field] = value;
-    // ici, tu peux envoyer les modifications vers le backend si tu veux
+   
   }
   
   tousChampsRenseignes(): boolean {

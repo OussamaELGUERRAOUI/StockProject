@@ -1,1 +1,70 @@
-<p>formulaire works!</p>
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-header bg-primary text-white">
+      <h4 class="mb-0">Formulaire de sélection produit</h4>
+    </div>
+
+    <div class="card-body">
+
+     
+      <div *ngIf="loading" class="text-center">
+        <div class="spinner-border text-primary" role="status"></div>
+        <p class="mt-2">Chargement des données...</p>
+      </div>
+
+    
+      <form *ngIf="!loading" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+       
+        <div class="mb-3">
+          <label for="segment" class="form-label">Segment :</label>
+          <select class="form-select" id="segment" formControlName="segment">
+            <option value="" disabled selected>Choisir un segment</option>
+            <option *ngFor="let seg of data" [value]="seg.segment">{{ seg.segment }}</option>
+          </select>
+        </div>
+
+      
+        <div class="mb-3">
+          <label for="format" class="form-label">Format :</label>
+          <select class="form-select" id="format" formControlName="format">
+            <option value="" disabled selected>Choisir un format</option>
+            <option *ngFor="let fmt of selectedFormats" [value]="fmt.format">{{ fmt.format }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="code" class="form-label">Produit (Code - Flavor) :</label>
+          <select class="form-select" id="code" formControlName="code">
+            <option value="" disabled selected>Choisir un produit</option>
+            <option *ngFor="let p of selectedProduits" [value]="p.CODE">
+              {{ p.CODE }} - {{ p.FLAVOR }}
+            </option>
+          </select>
+        </div>
+
+
+        <div class="mb-3">
+          <label for="quantity" class="form-label">Quantité :</label>
+          <input
+            type="number"
+            class="form-control"
+            id="quantity"
+            formControlName="quantity"
+            min="1"
+            placeholder="Entrer une quantité"
+          />
+        </div>
+
+       
+        <div class="d-grid">
+          <button type="submit" class="btn btn-success" [disabled]="form.invalid">
+            Valider
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>

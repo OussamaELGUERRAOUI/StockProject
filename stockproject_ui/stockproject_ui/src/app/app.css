@@ -1,0 +1,30 @@
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espace entre l'image et le texte */
+}
+
+.logo-img {
+  height: 100px; 
+   width: auto;/* Ajuste selon ta mise en page */
+}
+
+.logo-text {
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+}
+/* styles.css */
+.bg-pepsi {
+  background-image: url('/assets/canettesimple.png');
+}
+.fade-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.5s, transform 0.5s;
+}

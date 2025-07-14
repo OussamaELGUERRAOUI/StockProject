@@ -1,0 +1,2 @@
+npm install countup.js ngx-countup
+
